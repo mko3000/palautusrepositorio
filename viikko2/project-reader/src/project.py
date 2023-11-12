@@ -1,8 +1,8 @@
 class Project:
-    def __init__(self, name, description, license, authors, dependencies, dev_dependencies):
+    def __init__(self, name, description, project_license, authors, dependencies, dev_dependencies):
         self.name = name
         self.description = description
-        self.license = license
+        self.license = project_license
         self.authors = authors
         self.dependencies = dependencies
         self.dev_dependencies = dev_dependencies
