@@ -1,4 +1,6 @@
 from entities.user import User
+import re
+import sys, pdb
 
 
 class UserInputError(Exception):
@@ -36,5 +38,21 @@ class UserService:
     def validate(self, username, password):
         if not username or not password:
             raise UserInputError("Username and password are required")
+        
+        if self._user_repository.find_by_username(username):
+            raise UserInputError("User with username already exists")
+        
+        if len(username) < 3:
+            raise UserInputError("Username too short")
+        
+        if re.match("^[a-zA-Z]+$", username) == None:
+            raise UserInputError("Username can contain only letters")
+        
+        if len(password) < 8:
+            raise UserInputError("Password too short")
+        
+        if re.match("^[a-zA-Z]+$", password) != None:
+            raise UserInputError("Password can't contain only letters")
+
 
         # toteuta loput tarkastukset tänne ja nosta virhe virhetilanteissa
