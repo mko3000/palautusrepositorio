@@ -8,7 +8,7 @@ class Kassapaate:
     def lataa(self, kortti, summa):
         kortti.lataa(summa)
         if summa < 0:
-            return
+            return 
         kortti.saldo += summa
 
     def osta_lounas(self, kortti):
