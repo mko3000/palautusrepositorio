@@ -8,6 +8,10 @@ def sort_by_points(player):
 class Statistics:
     def __init__(self, player_reader):
         self._players = player_reader.get_players()
+        # if type(player_reader) == 'list':
+        #     self._players = player_reader            
+        # else:
+        #     self._players = player_reader.get_players()
 
     def search(self, name):
         for player in self._players:
